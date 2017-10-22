@@ -18,7 +18,7 @@ module.exports = function(app) {
                 // Save an empty result object
                 var result = {};
 
-                // Add the headline, summary, and href of every link, and save them as properties of the result object
+                // Add the headline, summary, and href of every article, and save them as properties of the result object
                 result.headline = $(this)
                     .find("h1.headline")
                     .text();
@@ -35,8 +35,22 @@ module.exports = function(app) {
                 db.Article
                     .create(result)
                     .then(function(dbArticle) {
-                        // If we were able to successfully scrape and save an Article, send a message to the client
-                        res.send("Article Scrape Complete");
+                        // If we were able to successfully scrape and save an the articles, render page with all articles
+                        res.send("Web Scrape Complete")
+                    })
+                    .catch(function(err) {
+                        // If an error occurred, send it to the client
+                        res.json(err);
+                    });
+            }).then(function() {
+                db.Article
+                    .find({})
+                    // ..and populate all of the notes associated with it
+                    .populate("comments")
+                    .then(function(dbArticle) {
+                        // render results into handelbars view
+                        console.log(dbArticle);
+                        res.render("index", dbArticle);
                     })
                     .catch(function(err) {
                         // If an error occurred, send it to the client
