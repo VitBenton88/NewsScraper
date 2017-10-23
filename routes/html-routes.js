@@ -45,7 +45,7 @@ module.exports = function(app) {
             }).then(function() {
                 db.Article
                     .find({})
-                    // ..and populate all of the notes associated with it
+                    // ..and populate all of the comments associated with it
                     .populate("comments")
                     .then(function(dbArticle) {
                         // render results into handelbars view

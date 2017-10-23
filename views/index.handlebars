@@ -1,60 +1,20 @@
-<div id="wrap">
+<div class="container">
 
-  <h1>Eat-Da-Burger!</h1>
 
-  <div id="notEaten" class="section">
-
-    <h2>Burgers That Are Not Eaten</h2>
-
-    <ul>
-      {{#each burgers}}
-        {{#unless this.dataValues.devoured}}
-        <li>
-            {{this.dataValues.id}}
-            {{this.dataValues.burger_name}}
-          <form action="/{{this.id}}?_method=PUT" method="POST">
-              <input type="hidden" name="devour" value="true">
-              <button type="submit">Devour it!</button>
-            </form>
-        </li>
-        {{/unless}}
-      {{/each}}
-    </ul>
-
-  </div>
-
-  <img src="img/burger.png">
-
-  <div id="eaten" class="section">
-
-    <h2>Burgers That Are Eaten</h2>
-
-    <ul>
-      {{#each burgers}}
-        {{#if this.dataValues.devoured}}
-        <li>
-            {{this.dataValues.id}}
-            {{this.dataValues.burger_name}}
-          </li>
-        {{/if}}
-      {{/each}}
-    </ul>
-
-  </div>
-
-  <div id="add" class="section">
-
-    <h2>Add a Burger</h2>
-    <form class="add-form" action="/" method="POST">
-
-      <div class="form-group">
-        <label for="ca">Burger Name:</label>
-        <input type="text" id="ca" name="name">
+{{#each dbArticle}}
+  <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">{{this.headline}}</div>
+      <div class="panel-body">
+          <p>{{this.summary}}</p>
       </div>
-
-      <button type="submit">Add Burger</button>
-    </form>
-
+      <!-- List group -->
+      <ul class="list-group">
+        {{#each dbArticle.comments}}
+          <li class="list-group-item">{{this}}</li>
+        {{/each}}
+      </ul>
   </div>
 
-</div>
+  </div>
+  {{/each}}
