@@ -13,3 +13,17 @@
 .panel-heading {
 	background-color: #d9d9d9 !important;
 }
+
+.modal-backdrop {
+    /* bug fix - no overlay */
+    display: none;
+}
+
+#myModal {
+	background: rgba(0, 0, 0, 0.6);
+}
+
+#commentInput {
+	padding: 20px 10px 200px;
+    line-height: 28px;
+}
