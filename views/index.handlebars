@@ -1,20 +1,26 @@
-<div class="container">
+{{#each articles}}
+  <div class="container">
 
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">{{this.headline}}</div>
+        <div class="panel-body">
+            <p>{{this.summary}}</p>
+        </div>
+        <!-- List group -->
+        <ul class="list-group">
+          {{#each dbArticle.comments}}
+            <li class="list-group-item">{{this}}</li>
+          {{/each}}
+        </ul>
+        
+        <a class="btn" href="#">
+        <i class="fa fa-comments fa-lg"></i> View Comments</a>
 
-{{#each dbArticle}}
-  <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading">{{this.headline}}</div>
-      <div class="panel-body">
-          <p>{{this.summary}}</p>
-      </div>
-      <!-- List group -->
-      <ul class="list-group">
-        {{#each dbArticle.comments}}
-          <li class="list-group-item">{{this}}</li>
-        {{/each}}
-      </ul>
+        <a class="btn" href="#">
+        <i class="fa fa-plus fa-lg"></i> Add Comment</a>
+
+    </div>
   </div>
 
-  </div>
-  {{/each}}
+{{/each}}

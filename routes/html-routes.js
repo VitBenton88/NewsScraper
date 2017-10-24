@@ -1,6 +1,8 @@
 // Dependencies
 // =============================================================
 var db = require("../models");
+var axios = require("axios");
+var cheerio = require("cheerio");
 
 
 // Routes
@@ -36,28 +38,28 @@ module.exports = function(app) {
                     .create(result)
                     .then(function(dbArticle) {
                         // If we were able to successfully scrape and save an the articles, render page with all articles
-                        res.send("Web Scrape Complete")
+                        console.log("Web Scrape Complete")
                     })
                     .catch(function(err) {
                         // If an error occurred, send it to the client
-                        res.json(err);
+                        console.log(err);
                     });
-            }).then(function() {
-                db.Article
-                    .find({})
-                    // ..and populate all of the comments associated with it
-                    .populate("comments")
-                    .then(function(dbArticle) {
-                        // render results into handelbars view
-                        console.log(dbArticle);
-                        res.render("index", dbArticle);
-                    })
-                    .catch(function(err) {
-                        // If an error occurred, send it to the client
-                        res.json(err);
-                    });
+
             });
-        });
+        }); //after here
+
+        db.Article
+            .find({})
+            // ..and populate all of the comments associated with it
+            .populate("comments")
+            .then(function(dbArticle) {
+                // render results into handelbars view
+                res.render("index", {articles: dbArticle});
+            })
+            .catch(function(err) {
+                // If an error occurred, send it to the client
+                console.log(err);
+            });
     });
 
 };
