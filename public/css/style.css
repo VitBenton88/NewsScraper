@@ -27,3 +27,7 @@
 	padding: 20px 10px 200px;
     line-height: 28px;
 }
+
+.list-group {
+	display: none;
+}

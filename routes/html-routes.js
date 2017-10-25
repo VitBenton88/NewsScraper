@@ -49,7 +49,7 @@ module.exports = function(app) {
                 .then(function(dbArticle) {
                     // If we were able to successfully scrape and save an the articles, render page with all articles
                     console.log("Web Scrape Complete");
-
+                    //after the new entries are entered into the database, render all into index.html
                     db.Article
                         .find({})
                         // ..and populate all of the comments associated with it
