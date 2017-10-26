@@ -115,4 +115,20 @@ module.exports = function(app) {
             });
     });
 
+    //get request to delete
+    app.get("/delete/:id", function(req, res) {
+
+        var comment = req.params.id;
+
+        db.Comment
+            .deleteOne({ _id: comment })
+            .then(function(dbComment) {
+                res.redirect("/");
+            })
+            .catch(function(err) {
+                // If an error occurred, send it to the client
+                console.log(err);
+                res.send(false);
+            });
+    });
 };

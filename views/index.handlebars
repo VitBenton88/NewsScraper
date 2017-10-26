@@ -11,7 +11,7 @@
         <ul class="list-group" id="{{this._id}}">
             <li class="list-group-item ulTitle">Comments:</li>
           {{#each this.comments}}
-            <li class="list-group-item">{{this.body}} <a data-commentId="{{this._id}}" class="deleteBtn btn btn-danger" href="#"><i class="fa fa-trash-o fa-lg"></i></a></li>
+            <li class="list-group-item"><a class="deleteBtn btn btn-danger" href="/delete/{{this._id}}"><i class="fa fa-trash-o fa-lg"></i></a> {{this.body}}</li>
           {{/each}}
         </ul>
 
@@ -23,6 +23,7 @@
         
         <a class="btn viewComments" data-visible="false" data-article="{{this._id}}" href="#">
         <i class="fa fa-comments fa-lg"></i> View Comments</a>
+        <span>({{this.comments.length}})</span>
 
     </div>
   </div>
