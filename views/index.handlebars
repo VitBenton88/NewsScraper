@@ -8,9 +8,10 @@
             <p>{{this.summary}}</p>
         </div>
         <!-- List group -->
-        <ul class="list-group">
-          {{#each dbArticle.comments}}
-            <li class="list-group-item">{{this}}</li>
+        <ul class="list-group" id="{{this._id}}">
+            <li class="list-group-item ulTitle">Comments:</li>
+          {{#each this.comments}}
+            <li class="list-group-item">{{this.body}}</li>
           {{/each}}
         </ul>
 
@@ -20,7 +21,7 @@
         <a class="btn addComment" data-toggle="modal" data-article="{{this._id}}" data-target="#myModal" href="#">
         <i class="fa fa-plus fa-lg"></i> Add Comment</a>
         
-        <a class="btn" href="#">
+        <a class="btn viewComments" data-visible="false" data-article="{{this._id}}" href="#">
         <i class="fa fa-comments fa-lg"></i> View Comments</a>
 
     </div>

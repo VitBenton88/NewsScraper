@@ -28,6 +28,19 @@
     line-height: 28px;
 }
 
-/*.list-group {
+.list-group {
 	display: none;
-}*/
+}
+
+.list-group-item {
+	background-color: #00e284;
+}
+
+.list-group-item:nth-child(odd) {
+	background-color: #f5f5f5;
+}
+
+.ulTitle {
+	font-weight: bold;
+	background-color: #00e284 !important;
+}

@@ -46,6 +46,28 @@ $(document).ready(function() {
 
     });
 
+    //event listener for button click to view/hide comments;
+    $('body').on('click', '.viewComments', function() {
+
+        event.preventDefault();
+
+        var visible = $(this).attr("data-visible");
+        var commentULid = "#" +  $(this).attr("data-article");
+        var showText = '<i class="fa fa-comments fa-lg"></i> View Comments</a>';
+        var hideText = '<i class="fa fa-eye-slash fa-lg"></i> Hide Comments</a>';
+
+        if(visible === "false"){
+            $(commentULid).show(250);
+            $(this).html(hideText);
+            $(this).attr("data-visible", "true");
+        } else {
+            $(commentULid).hide(500);
+            $(this).html(showText);
+            $(this).attr("data-visible", "false");
+        }
+
+    });
+
 
 
 }); //END OF $(document).ready

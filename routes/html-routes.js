@@ -102,9 +102,10 @@ module.exports = function(app) {
             .create(newComment)
             .then(function(dbComment) {
 
-                db.Article.findOneAndUpdate({_id: articleID}, {$push: {comments: dbComment._id}});
+                db.Article.findOneAndUpdate({_id: articleID}, {$push: {comments: dbComment._id}}, function(){
+                    res.send(true);
+                });
 
-                res.send(true);
 
             })
             .catch(function(err) {
