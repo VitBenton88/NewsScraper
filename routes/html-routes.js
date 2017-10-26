@@ -56,6 +56,7 @@ module.exports = function(app) {
                         .populate("comments")
                         .then(function(dbArticle) {
                             // render results into handelbars view
+                            console.log(dbArticle);
                             res.render("index", { articles: dbArticle });
                         })
                         .catch(function(err) {
@@ -73,6 +74,7 @@ module.exports = function(app) {
                         .populate("comments")
                         .then(function(dbArticle) {
                             // render results into handelbars view
+                            console.log(dbArticle);
                             res.render("index", { articles: dbArticle });
                         })
                         .catch(function(err) {

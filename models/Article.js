@@ -23,7 +23,7 @@ var ArticleSchema = new Schema({
   },
   // `comment` is an object that stores a comment id
   // The ref property links the ObjectId to the Note model
-  // This allows us to populate the Article with an associated Note
+  // This allows us to populate the Article with an associated Comment
   comments: [{ type: Schema.ObjectId, ref: 'Comment' }]
   
 });
