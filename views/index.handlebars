@@ -9,7 +9,11 @@
         </div>
         <!-- List group -->
         <ul class="list-group" id="{{this._id}}">
-            <li class="list-group-item ulTitle">Comments:</li>
+              {{#if this.comments.length}}
+                <li class="list-group-item ulTitle">Comments:</li>
+              {{else}}
+            <li id="noComments" class="list-group-item">No Comments Yet!</li>
+            {{/if}}
           {{#each this.comments}}
             <li class="list-group-item"><a class="deleteBtn btn btn-danger" href="/delete/{{this._id}}"><i class="fa fa-trash-o fa-lg"></i></a> {{this.body}}</li>
           {{/each}}
@@ -22,8 +26,7 @@
         <i class="fa fa-plus fa-lg"></i> Add Comment</a>
         
         <a class="btn viewComments" data-visible="false" data-article="{{this._id}}" href="#">
-        <i class="fa fa-comments fa-lg"></i> View Comments</a>
-        <span>({{this.comments.length}})</span>
+        <i class="fa fa-comments fa-lg"></i> View Comments <span>({{this.comments.length}})</span></a>
 
     </div>
   </div>

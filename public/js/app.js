@@ -47,17 +47,18 @@ $(document).ready(function() {
     });
 
     //event listener for button click to view/hide comments;
+    var showText;
     $('body').on('click', '.viewComments', function() {
 
         event.preventDefault();
 
         var visible = $(this).attr("data-visible");
         var commentULid = "#" + $(this).attr("data-article");
-        var showText = '<i class="fa fa-comments fa-lg"></i> View Comments</a>';
         var hideText = '<i class="fa fa-eye-slash fa-lg"></i> Hide Comments</a>';
 
         if (visible === "false") {
             $(commentULid).show(250);
+            showText = $(this).html()
             $(this).html(hideText);
             $(this).attr("data-visible", "true");
         } else {

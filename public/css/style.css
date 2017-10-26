@@ -45,6 +45,11 @@
 	background-color: #00e284 !important;
 }
 
+#noComments {
+	font-weight: bold;
+	background-color: #f0ad4e !important;
+}
+
 .deleteBtn {
 	margin-left: 20px;
 }
