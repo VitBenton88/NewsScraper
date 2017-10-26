@@ -44,3 +44,7 @@
 	font-weight: bold;
 	background-color: #00e284 !important;
 }
+
+.deleteBtn {
+	margin-left: 20px;
+}

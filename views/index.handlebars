@@ -11,7 +11,7 @@
         <ul class="list-group" id="{{this._id}}">
             <li class="list-group-item ulTitle">Comments:</li>
           {{#each this.comments}}
-            <li class="list-group-item">{{this.body}}</li>
+            <li class="list-group-item">{{this.body}} <a data-commentId="{{this._id}}" class="deleteBtn btn btn-danger" href="#"><i class="fa fa-trash-o fa-lg"></i></a></li>
           {{/each}}
         </ul>
 
@@ -26,5 +26,5 @@
 
     </div>
   </div>
-
+ 
 {{/each}}

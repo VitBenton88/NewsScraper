@@ -68,6 +68,30 @@ $(document).ready(function() {
 
     });
 
+    //event listener for button click to delete comments;
+    $('body').on('click', '.viewComments', function() {
+
+        event.preventDefault();
+
+        var commentId: $(this).attr("data-commentId");
+
+        var commentToDelete = {
+            commentId: $(this).attr("data-commentId")
+        };
+
+        $.delete("/delete", commentToDelete)
+                .done(function(data) {
+
+                    if (data === true) {
+                        alert("Comment Successfully Deleted!");
+                        window.location = "/";
+                    } else {
+                        alert("There Was An Error Deleting Your Comment!")
+                    };
+
+                });
+
+    });
 
 
 }); //END OF $(document).ready
