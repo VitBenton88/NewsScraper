@@ -131,4 +131,10 @@ module.exports = function(app) {
                 res.send(false);
             });
     });
+
+        //get request to delete
+    app.get("/about", function(req, res) {
+
+        res.render("about");
+    });
 };

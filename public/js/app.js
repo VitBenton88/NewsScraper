@@ -52,11 +52,11 @@ $(document).ready(function() {
         event.preventDefault();
 
         var visible = $(this).attr("data-visible");
-        var commentULid = "#" +  $(this).attr("data-article");
+        var commentULid = "#" + $(this).attr("data-article");
         var showText = '<i class="fa fa-comments fa-lg"></i> View Comments</a>';
         var hideText = '<i class="fa fa-eye-slash fa-lg"></i> Hide Comments</a>';
 
-        if(visible === "false"){
+        if (visible === "false") {
             $(commentULid).show(250);
             $(this).html(hideText);
             $(this).attr("data-visible", "true");
@@ -67,5 +67,11 @@ $(document).ready(function() {
         }
 
     });
+
+    //workaround for setting bootstrap active class on about page
+    if ($("#aboutPanel").hasClass("panel")){
+        $("#aboutLink").addClass("active");
+        $("#homeLink").removeClass("active");
+    };
 
 }); //END OF $(document).ready
